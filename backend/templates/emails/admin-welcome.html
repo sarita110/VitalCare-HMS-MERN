@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to VitalCare</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        background-color: #1976d2;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        margin-bottom: 20px;
+      }
+      .logo {
+        max-width: 150px;
+        margin-bottom: 10px;
+      }
+      .content {
+        padding: 0 20px 20px;
+      }
+      .credentials {
+        background-color: #f9f9f9;
+        border-left: 4px solid #1976d2;
+        padding: 15px;
+        margin: 20px 0;
+      }
+      .button {
+        display: inline-block;
+        background-color: #1976d2;
+        color: white;
+        text-decoration: none;
+        padding: 12px 25px;
+        border-radius: 4px;
+        margin: 20px 0;
+        font-weight: bold;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        color: #666666;
+        font-size: 12px;
+        border-top: 1px solid #eeeeee;
+        padding-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Welcome to VitalCare</h1>
+      </div>
+      <div class="content">
+        <p>Hello {{name}},</p>
+
+        <p>
+          We're excited to welcome you to VitalCare! You have been added as an
+          <strong>Administrator</strong> for <strong>{{hospitalName}}</strong>.
+        </p>
+
+        <div class="credentials">
+          <h3>Your Login Credentials</h3>
+          <p><strong>Email:</strong> {{email}}</p>
+          <p><strong>Password:</strong> {{password}}</p>
+          <p>
+            <em
+              >Please log in and change your password immediately for security
+              reasons.</em
+            >
+          </p>
+        </div>
+
+        <p>With your administrator account, you can:</p>
+        <ul>
+          <li>Manage hospital departments</li>
+          <li>Add and manage doctors and staff</li>
+          <li>View hospital statistics and reports</li>
+          <li>Configure hospital settings</li>
+        </ul>
+
+        <p>To get started, click the button below:</p>
+
+        <a href="{{loginUrl}}" class="button">Log In to VitalCare</a>
+
+        <p>
+          If the button doesn't work, copy and paste the following URL into your
+          browser:
+        </p>
+        <p>{{loginUrl}}</p>
+
+        <p>
+          If you have any questions or need assistance, please contact our
+          support team.
+        </p>
+
+        <p>Best regards,<br />The VitalCare Team</p>
+      </div>
+      <div class="footer">
+        <p>&copy; {{currentYear}} VitalCare HMS. All rights reserved.</p>
+        <p>This is an automated message, please do not reply to this email.</p>
+      </div>
+    </div>
+  </body>
+</html>

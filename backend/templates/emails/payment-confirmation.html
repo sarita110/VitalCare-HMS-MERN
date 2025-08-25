@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Confirmation - VitalCare</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .header {
+        background-color: #f4f4f4;
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+      }
+      .content {
+        padding: 20px 0;
+      }
+      .receipt {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border: 1px solid #eee;
+        border-radius: 4px;
+      }
+      .receipt p {
+        margin: 5px 0;
+      }
+      .receipt strong {
+        display: inline-block;
+        min-width: 150px;
+      }
+      .footer {
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #777;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Payment Confirmation</h2>
+      </div>
+      <div class="content">
+        <p>Hello {{name}},</p>
+        <p>
+          Your payment to VitalCare has been processed successfully. Here are
+          the details:
+        </p>
+        <div class="receipt">
+          <p><strong>Amount Paid:</strong> {{currency}} {{amount}}</p>
+          <p><strong>Payment Date:</strong> {{date}}</p>
+          <p><strong>Payment Method:</strong> {{paymentMethod}}</p>
+          <p><strong>Receipt Number:</strong> {{receiptNumber}}</p>
+          <p><strong>Payment For:</strong> {{paymentDetails}}</p>
+        </div>
+        <p>Thank you for your payment.</p>
+        <p>
+          If you have any questions regarding this payment, please contact our
+          billing department.
+        </p>
+        <p>Sincerely,<br />The VitalCare Team</p>
+      </div>
+      <div class="footer">
+        <p>&copy; VitalCare. All rights reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>

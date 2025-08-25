@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appointment Confirmation - VitalCare</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .header {
+        background-color: #f4f4f4;
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+      }
+      .content {
+        padding: 20px 0;
+      }
+      .details {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border: 1px solid #eee;
+        border-radius: 4px;
+      }
+      .details strong {
+        display: inline-block;
+        min-width: 120px;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 3px;
+      }
+      .footer {
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #777;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Appointment Confirmation</h2>
+      </div>
+      <div class="content">
+        <p>Hello {{name}},</p>
+        <p>Your appointment has been successfully scheduled with VitalCare.</p>
+        <div class="details">
+          <p><strong>Hospital:</strong> {{hospitalName}}</p>
+          <p><strong>Doctor:</strong> {{doctorName}}</p>
+          <p><strong>Date:</strong> {{date}}</p>
+          <p><strong>Time:</strong> {{time}}</p>
+        </div>
+        <p>Please arrive a few minutes early for your appointment.</p>
+        <p>You can view or manage your appointment details here:</p>
+        <p>
+          <a href="{{appointmentLink}}" class="button" style="color: #ffffff"
+            >View Appointment</a
+          >
+        </p>
+        <p>
+          If you need to reschedule or cancel, please do so at least 24 hours in
+          advance through the portal or by contacting the hospital.
+        </p>
+        <p>We look forward to seeing you.</p>
+        <p>Sincerely,<br />The VitalCare Team</p>
+      </div>
+      <div class="footer">
+        <p>&copy; VitalCare. All rights reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>
