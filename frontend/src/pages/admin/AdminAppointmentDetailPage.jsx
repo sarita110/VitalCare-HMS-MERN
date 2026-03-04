@@ -2,7 +2,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import toast from "react-hot-toast";
-import { notifyInfo } from "../../utils/notifications"; // Use notification utility
+// import { notifyInfo } from "../../utils/notifications";
+import { notifyInfo } from "../../components/common/Notification"; // Use notification utility
 import adminService from "../../services/adminService"; // Use admin service
 import appointmentService from "../../services/appointmentService"; // Use generic appointment service for fetching
 import LoadingSpinner from "../../components/common/LoadingSpinner";
@@ -38,14 +39,13 @@ const AdminAppointmentDetailPage = () => {
     setError(null);
     try {
       // Use the generic appointment service, backend handles authorization
-      const response = await appointmentService.getAppointmentDetails(
-        appointmentId
-      );
+      const response =
+        await appointmentService.getAppointmentDetails(appointmentId);
       if (response.success) {
         setAppointment(response.appointment);
       } else {
         throw new Error(
-          response.message || "Failed to fetch appointment details"
+          response.message || "Failed to fetch appointment details",
         );
       }
     } catch (err) {
@@ -163,7 +163,7 @@ const AdminAppointmentDetailPage = () => {
               <strong>Status:</strong>{" "}
               <span
                 className={`ml-1 inline-block badge ${getStatusBadgeClass(
-                  appointment.status
+                  appointment.status,
                 )}`}
               >
                 {getDisplayStatus(appointment.status)}
@@ -198,7 +198,7 @@ const AdminAppointmentDetailPage = () => {
                 <strong>Status:</strong>{" "}
                 <span
                   className={`ml-1 inline-block badge ${getStatusBadgeClass(
-                    appointment.payment.status
+                    appointment.payment.status,
                   )}`}
                 >
                   {getDisplayStatus(appointment.payment.status)}
