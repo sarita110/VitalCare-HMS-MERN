@@ -616,7 +616,6 @@ export const createHospitalAdmin = async (req, res) => {
         email: newAdmin.email,
         hospital: hospitalId,
       },
-      temporaryPassword: password,
       emailSent: emailResult.success,
     });
   } catch (error) {
