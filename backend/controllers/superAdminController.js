@@ -122,14 +122,14 @@ export const createHospital = async (req, res) => {
       // Verify all required address fields exist
       const requiredFields = ["street", "city", "state", "zipCode", "country"];
       const missingFields = requiredFields.filter(
-        (field) => !addressData[field]
+        (field) => !addressData[field],
       );
 
       if (missingFields.length > 0) {
         return res.status(400).json({
           success: false,
           message: `Missing required address fields: ${missingFields.join(
-            ", "
+            ", ",
           )}`,
         });
       }
@@ -596,13 +596,13 @@ export const createHospitalAdmin = async (req, res) => {
     const emailResult = await emailService.sendHospitalAdminWelcomeEmail(
       { name, email },
       password,
-      hospital
+      hospital,
     );
 
     // Log email status but don't prevent admin creation if email fails
     if (!emailResult.success) {
       console.log(
-        `Admin created but email failed to send: ${emailResult.error}`
+        `Admin created but email failed to send: ${emailResult.error}`,
       );
     }
 
@@ -616,6 +616,7 @@ export const createHospitalAdmin = async (req, res) => {
         email: newAdmin.email,
         hospital: hospitalId,
       },
+      temporaryPassword: password,
       emailSent: emailResult.success,
     });
   } catch (error) {
@@ -649,7 +650,7 @@ export const getHospitalAdmins = async (req, res) => {
     const total = await User.countDocuments(query);
     const admins = await User.find(query)
       .select(
-        "-password -resetPasswordToken -resetPasswordExpires -verificationOTP -verificationOTPExpires"
+        "-password -resetPasswordToken -resetPasswordExpires -verificationOTP -verificationOTPExpires",
       )
       .populate("hospital", "name isActive")
       .sort({ createdAt: -1 })
@@ -686,7 +687,7 @@ export const getHospitalAdminDetails = async (req, res) => {
     const { id } = req.params; // User ID
     const admin = await User.findOne({ _id: id, role: ROLES.ADMIN })
       .select(
-        "-password -resetPasswordToken -resetPasswordExpires -verificationOTP -verificationOTPExpires"
+        "-password -resetPasswordToken -resetPasswordExpires -verificationOTP -verificationOTPExpires",
       )
       .populate("hospital", "name isActive address contactNumber email");
     if (!admin) {
@@ -722,7 +723,7 @@ export const updateHospitalAdminStatus = async (req, res) => {
     const admin = await User.findOneAndUpdate(
       { _id: id, role: ROLES.ADMIN },
       { isActive },
-      { new: true }
+      { new: true },
     );
     if (!admin) {
       return res
@@ -851,7 +852,7 @@ export const generateSystemReport = async (req, res) => {
     const reportResult = await reportService.generateReport(
       reportType,
       format,
-      reportData
+      reportData,
     );
 
     if (!reportResult.success) {
@@ -917,11 +918,11 @@ export const downloadSystemReport = async (req, res) => {
     res.setHeader("Content-Type", mimeType);
     res.setHeader(
       "Content-Disposition",
-      `attachment; filename="${safeFilename}"`
+      `attachment; filename="${safeFilename}"`,
     ); // Use safeFilename
 
     console.log(
-      `Attempting to send file: ${filePath} with Content-Type: ${mimeType}`
+      `Attempting to send file: ${filePath} with Content-Type: ${mimeType}`,
     );
 
     // **Use Streaming for Robustness**
@@ -931,7 +932,7 @@ export const downloadSystemReport = async (req, res) => {
     fileStream.on("error", (streamError) => {
       console.error(
         `Error reading file stream for ${safeFilename}:`,
-        streamError
+        streamError,
       );
       if (!res.headersSent) {
         res
