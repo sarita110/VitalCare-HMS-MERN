@@ -75,7 +75,7 @@ const LoginForm = ({ onSubmit, isLoading, error }) => {
           type="submit"
           className="w-full justify-center"
           isLoading={isLoading}
-          disabled={isLoading || !formik.isValid || !!error} // Disable on API error too until it's cleared
+          disabled={isLoading || !formik.isValid}
         >
           Sign in
         </Button>
