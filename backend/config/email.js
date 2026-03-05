@@ -10,20 +10,17 @@ if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
   console.error("Email credentials missing! Check your .env file.");
 }
 
-// Create the transporter with more detailed config
+// Create the transporter
 const transporter = nodemailer.createTransport({
-  service: process.env.EMAIL_SERVICE || "gmail",
-  host: "smtp.gmail.com",
+  host: "smtp.gmail.com", // Notice we removed the "service" line completely
   port: 587,
-  secure: false,
+  secure: false, // true for 465, false for other ports
+  requireTLS: true,
+  family: 4, // <--- THIS IS THE MAGIC FIX: Forces IPv4 instead of IPv6
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASSWORD,
   },
-  // debug: process.env.NODE_ENV === "development", // Enable debugging in development
-  // logger: process.env.NODE_ENV === "development", // Log SMTP traffic in development
-  debug: false,
-  logger: false,
 });
 
 // Verify connection configuration
