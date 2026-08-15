@@ -6,8 +6,10 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css)
 ![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
 
-**Live Demo:** [https://vital-care-hms-mern.vercel.app](https://vital-care-hms-mern.vercel.app)  
-**Backend API:** Hosted on Render
+### 🌐 Live Demo & Cloud Infrastructure
+* **Frontend (Live Demo):** [https://vital-care-hms-mern.vercel.app](https://vital-care-hms-mern.vercel.app) *(Deployed via CI/CD on **Vercel**)*
+* **Backend API:** Hosted as a scalable Web Service on **Render**.
+* **Database:** Hosted securely on a **MongoDB Atlas** Cloud Cluster.
 
 VitalCare is a comprehensive, full-stack Hospital Management System (HMS) built with the MERN stack. Designed to digitize and streamline hospital operations, it provides dedicated interfaces for 7 different user roles, enabling seamless coordination between patients, medical staff, and administration.
 
